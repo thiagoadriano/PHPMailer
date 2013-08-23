@@ -539,7 +539,7 @@ class PHPMailer {
     if ( ini_get('safe_mode') || !($this->UseSendmailOptions) ) {
         $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header);
     } else {
-        $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header, $params);
+        $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header, "-r", $params);
     }
     return $rt;
   }
